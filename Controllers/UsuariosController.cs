@@ -53,8 +53,13 @@ namespace Biblioteca.Controllers
             return RedirectToAction("cadastroRealizado");
         }
 
+        public IActionResult ExcluirUsuario(int id)
+        {
+            UsuarioService us = new UsuarioService();
+            return View(new UsuarioService().Listar(id));
+        }
 
-
+        [HttpPost]
         public IActionResult Excluirusuario(string decisao,int id)
         {       
             if(decisao=="EXCLUIR")
